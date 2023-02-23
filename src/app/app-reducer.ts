@@ -5,10 +5,9 @@ export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 const initialState = {
     status: 'idle' as RequestStatusType,
     errorMessage: null as null | string,
-    isInitialized: false as boolean
+    isInitialized: false as boolean,
 }
 
-type InitialStateType = typeof initialState
 
 const slice = createSlice({
     name: 'app',

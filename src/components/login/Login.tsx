@@ -6,11 +6,9 @@ import FormGroup from "@mui/material/FormGroup";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {useFormik} from "formik";
-import {useDispatch} from "react-redux";
 import {loginTC} from "../../state/reducers/auth-reducer";
-import {useAppSelector} from "../../state/hooks";
+import {useAppDispatch, useAppSelector} from "../../state/hooks";
 import {Navigate} from "react-router-dom";
-/*import {loginTC} from "../../state/reducers/auth-reducer";*/
 
 type FormikErrorType = {
     username?: string;
@@ -22,7 +20,7 @@ type FormikValues = {
 };
 
 export const Login = () => {
-    let dispatch = useDispatch();
+    let dispatch = useAppDispatch()
 
     //подтягиваем значение из редюсера: залогинен/неЗалогинен
     let isLoggedIn = useAppSelector(state => state.auth.isLoggedIn)
@@ -49,8 +47,7 @@ export const Login = () => {
             return errors;
         },
         onSubmit: (values: FormikValues) => {
-            dispatch<any>(loginTC());
-
+            dispatch(loginTC());
             formik.resetForm();
         },
     });

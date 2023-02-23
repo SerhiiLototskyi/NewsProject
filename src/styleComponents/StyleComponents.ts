@@ -46,6 +46,13 @@ export const HeaderButton = styled.div`
   height: 36px;
 `;
 
+export const HeaderButtons = styled.div`
+ display: flex;
+  width: 250px;
+  justify-content: space-around;
+  align-items: center;
+`;
+
 export const SignInFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
